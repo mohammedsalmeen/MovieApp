@@ -43,7 +43,7 @@ public class MoviesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Movies> list = new ArrayList<>();
    // Button searchBtn;
-    IconTextView ReleasedDate,year,imdbRating,addToFavourite;
+    IconTextView ReleasedDate,year,imdbRating,addToFavourite,shareMovie;
     TextView title;
 
     @Override
@@ -57,6 +57,7 @@ public class MoviesActivity extends AppCompatActivity {
         year = findViewById(R.id.year);
         imdbRating = findViewById(R.id.imdbRating);
         addToFavourite = findViewById(R.id.addToFavourite);
+        shareMovie = findViewById(R.id.shareMovie);
         title= findViewById(R.id.title);
 
 
@@ -71,7 +72,6 @@ public class MoviesActivity extends AppCompatActivity {
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
 
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     performSearch();

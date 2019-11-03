@@ -63,6 +63,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
                 .into(holder.photo);
 
         holder.addToFavourite.setTag(position);
+        holder.shareMovie.setTag(position);
 
     }
 
@@ -72,7 +73,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView photo;
-        TextView MovieTitle, Released_date, ImdbRating, year;
+        TextView MovieTitle, Released_date, ImdbRating, year,shareMovie;
         IconTextView addToFavourite;
 
         public ViewHolder(@NonNull View itemView) {
@@ -80,10 +81,25 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
             MovieTitle = itemView.findViewById(R.id.title);
             ImdbRating = itemView.findViewById(R.id.imdbRating);
+            shareMovie = itemView.findViewById(R.id.shareMovie);
             year = itemView.findViewById(R.id.year);
             Released_date = itemView.findViewById(R.id.ReleasedDate);
             photo = itemView.findViewById(R.id.photo);
             addToFavourite = itemView.findViewById(R.id.addToFavourite);
+
+            shareMovie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int index = (int) view.getTag();
+                    Movies movie = list.get(index);
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, "i like this movie ..enjoy"+movie.MoviePoster);
+                    sendIntent.setType("image/jpg");
+                    context.startActivity(sendIntent);
+
+                }
+            });
 
             addToFavourite.setOnClickListener(new View.OnClickListener() {
                 @Override

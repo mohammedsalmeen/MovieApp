@@ -67,7 +67,6 @@
                 android:text="{fa-clock-o}  8-9PM"
                 android:gravity="center"
                 android:layout_width="0dp"
-                android:padding="3dp"
                 android:id="@+id/ReleasedDate"
                 android:layout_margin="10dp"
                 android:textColor="#000"
@@ -120,7 +119,25 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 />
+            <include layout="@layout/seperator"/>
 
+            <com.joanzapata.iconify.widget.IconTextView
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="{fa-share-square}"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:textColor="#000"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:id="@+id/shareMovie"
+                android:foreground="?android:selectableItemBackground"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                />
 
         </LinearLayout>
 
