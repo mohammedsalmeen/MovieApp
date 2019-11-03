@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movies App</string>
+    <string name="movies">Movies</string>
+    <string name="fav_movies">Favourite Movies</string>
+    <string name="search_movies"><i>The Dark Knight 2008</i></string>
+    <string name="project_name">Movies App</string>
+    <string name="last_name">Salmeen</string>
+    <string name="no_favs">No favourite yet</string>
+</resources>

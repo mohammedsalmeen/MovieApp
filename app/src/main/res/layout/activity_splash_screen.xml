@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen"
+    android:background="#fff"
+    android:orientation="vertical"
+
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/uxbert_logo"
+        android:id="@+id/splash_photo"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/project_name"
+        android:textStyle="bold"
+        android:id="@+id/movieText"
+        android:layout_gravity="center"
+        android:layout_below="@+id/splash_photo"
+        android:layout_centerHorizontal="true"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/last_name"
+        android:layout_gravity="center"
+        android:layout_below="@+id/movieText"
+        android:layout_centerHorizontal="true"
+
+        />
+
+</RelativeLayout>
