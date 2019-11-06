@@ -31,16 +31,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     Context context;
     RecyclerView recyclerView;
 
-
-
-
     public MoviesAdapter(ArrayList<Movies> l, Context context, RecyclerView recyclerView) {
 
         this.list = l;
         this.context = context;
         this.recyclerView = recyclerView;
-
-
     }
 
     @NonNull
@@ -49,17 +44,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         View card = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_items, parent, false);
         return new ViewHolder(card); //new ViewHolder(card);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Movies movies = list.get(position);
-        holder.MovieTitle.setText(movies.MovieTitle);
-        holder.ImdbRating.setText(movies.ImdbRating+"");
-        holder.Released_date.setText(movies.Released_date);
-        holder.year.setText(String.valueOf(movies.Year));
+        holder.MovieTitle.setText(movies.movieTitle);
+        holder.ImdbRating.setText(movies.imdbRating+"");
+        holder.Released_date.setText(movies.released_date);
+        holder.year.setText(String.valueOf(movies.year));
         Picasso.get()
-                .load("https://image.tmdb.org/t/p/w500"+movies.MoviePoster)
+                .load("https://image.tmdb.org/t/p/w500"+movies.moviePoster)
                 .into(holder.photo);
 
         holder.addToFavourite.setTag(position);
@@ -94,7 +88,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
                     Movies movie = list.get(index);
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, "i like this movie ..enjoy"+movie.MoviePoster);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, "i like this movie ..enjoy"+movie.moviePoster);
                     sendIntent.setType("image/jpg");
                     context.startActivity(sendIntent);
 
@@ -118,30 +112,26 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
                             arr = new JSONArray();
                         }
 
-                        if (!movieExists(movie.MovieTitle, arr)){
+                        if (!movieExists(movie.movieTitle, arr)){
                             JSONObject obj = new JSONObject();
-                            obj.put("title", movie.MovieTitle);
-                            obj.put("Released_date", movie.Released_date);
-                            obj.put("MoviePoster", movie.MoviePoster);
-                            obj.put("ImdbRating", movie.ImdbRating);
-                            obj.put("Year", movie.Year);
+                            obj.put("title", movie.movieTitle);
+                            obj.put("Released_date", movie.released_date);
+                            obj.put("MoviePoster", movie.moviePoster);
+                            obj.put("ImdbRating", movie.imdbRating);
+                            obj.put("Year", movie.year);
 
                             arr.put(obj);
                             editor.putString("favourites", arr.toString()).apply();
-                            Toast.makeText(context, movie.MovieTitle+" added to favourites", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, movie.movieTitle+" added to favourites", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(context, movie.MovieTitle+" already in favourites", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, movie.movieTitle+" already in favourites", Toast.LENGTH_SHORT).show();
                         }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
                 }
             });
-
 
         }
     }
@@ -156,5 +146,4 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         }
         return false;
     }
-
 }

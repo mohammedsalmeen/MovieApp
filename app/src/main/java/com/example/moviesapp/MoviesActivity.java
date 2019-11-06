@@ -35,7 +35,6 @@ import java.util.ArrayList;
 public class MoviesActivity extends AppCompatActivity {
 
     EditText search;
-
     String api_key = "8276af8b773a77f01fb1d242b941a6a0";
     String lang = "en-US";
 
@@ -43,7 +42,7 @@ public class MoviesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Movies> list = new ArrayList<>();
    // Button searchBtn;
-    IconTextView ReleasedDate,year,imdbRating,addToFavourite,shareMovie;
+    IconTextView releasedDate,year,imdbRating,addToFavourite,shareMovie;
     TextView title;
 
     @Override
@@ -53,7 +52,7 @@ public class MoviesActivity extends AppCompatActivity {
 
         search = findViewById(R.id.searchId);
        // searchBtn = findViewById(R.id.searchBtn);
-        ReleasedDate = findViewById(R.id.ReleasedDate);
+        releasedDate = findViewById(R.id.ReleasedDate);
         year = findViewById(R.id.year);
         imdbRating = findViewById(R.id.imdbRating);
         addToFavourite = findViewById(R.id.addToFavourite);
@@ -66,7 +65,6 @@ public class MoviesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MoviesActivity.this));
 
-
         showDiscovery();
 
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -76,15 +74,12 @@ public class MoviesActivity extends AppCompatActivity {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     performSearch();
                     return true;
-
                 }
                 return false;
             }
         });
 
     }
-
-
     private void showDiscovery(){
         String url = "https://api.themoviedb.org/3/discover/movie?api_key=8276af8b773a77f01fb1d242b941a6a0&language=en-US&sort_by=popularity.desc&page=1";
         Log.e("My","start response");
@@ -105,8 +100,6 @@ public class MoviesActivity extends AppCompatActivity {
         Queue.add(stringRequest);
         Queue.start();
     }
-
-
     private void performSearch() {
         search.clearFocus();
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -146,15 +139,15 @@ public class MoviesActivity extends AppCompatActivity {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                 Movies m = new Movies();
-                m.MoviePoster = jsonObject.getString("poster_path");
-                m.MovieTitle = jsonObject.getString("title");
-                m.ImdbRating = jsonObject.getDouble("vote_average");
-                m.Released_date = jsonObject.getString("release_date");
+                m.moviePoster = jsonObject.getString("poster_path");
+                m.movieTitle = jsonObject.getString("title");
+                m.imdbRating = jsonObject.getDouble("vote_average");
+                m.released_date = jsonObject.getString("release_date");
 
-                if(m.Released_date .length()!=0){
-                    m.Year = ""+m.Released_date.substring(0,4);
+                if(m.released_date .length()!=0){
+                    m.year = ""+m.released_date.substring(0,4);
                 }else {
-                    m.Year = "";
+                    m.year = "";
                 }
                 list.add(m);
             }
@@ -164,4 +157,3 @@ public class MoviesActivity extends AppCompatActivity {
         return list;
     }
 }
-/**/

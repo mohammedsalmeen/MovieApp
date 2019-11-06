@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,11 +14,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:src="@drawable/uxbert_logo"
-        />
-
-
-
+        android:src="@drawable/uxbert_logo" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -30,36 +24,30 @@
         android:layout_margin="15dp"
         app:cardCornerRadius="30dp"
         android:foreground="?android:selectableItemBackground"
-        android:id="@+id/movieCard"
-
-
-        >
+        android:id="@+id/movieCard">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/movies1"
             android:scaleType="centerCrop"
-            android:alpha="0.8"
-            />
+            android:alpha="0.8" />
 
-    <TextView
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        android:foreground="?android:selectableItemBackground"
-        android:text="@string/movies"
-        android:textColor="#fff"
-        android:background="@drawable/rounded_shadow_box"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="20dp"
-        />
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:layout_margin="20dp"
+            android:foreground="?android:selectableItemBackground"
+            android:text="@string/movies"
+            android:textColor="#fff"
+            android:background="@drawable/rounded_shadow_box"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="20dp" />
 
     </androidx.cardview.widget.CardView>
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -69,18 +57,14 @@
         android:layout_margin="15dp"
         app:cardCornerRadius="30dp"
         android:foreground="?android:selectableItemBackground"
-        android:id="@+id/favMovieCard"
-
-
-        >
+        android:id="@+id/favMovieCard">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/movies2jpg"
             android:scaleType="centerCrop"
-            android:alpha="0.8"
-            />
+            android:alpha="0.8" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,8 +78,7 @@
             android:background="@drawable/rounded_shadow_box"
             android:textStyle="bold"
             android:gravity="center"
-            android:padding="20dp"
-            />
+            android:padding="20dp"/>
 
     </androidx.cardview.widget.CardView>
 

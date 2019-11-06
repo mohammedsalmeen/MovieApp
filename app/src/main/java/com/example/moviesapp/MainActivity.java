@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
 public class MainActivity extends AppCompatActivity {
 
     CardView movieCardView , favMovieCardView;
@@ -22,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
         favMovieCardView= findViewById(R.id.favMovieCard);
 
 
-
-
-
     movieCardView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -36,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         }
     });
 
-
         favMovieCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,9 +42,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
 }

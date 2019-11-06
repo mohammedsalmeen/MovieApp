@@ -48,20 +48,10 @@
 
         </RelativeLayout>
 
-       <!-- <TextView
-            android:padding="20dp"
-            android:textSize="18sp"
-            android:textColor="#444"
-            android:id="@+id/body"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
--->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:text="{fa-clock-o}  8-9PM"
@@ -71,9 +61,10 @@
                 android:layout_margin="10dp"
                 android:textColor="#000"
                 android:layout_weight="1.5"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
+
             <include layout="@layout/seperator"/>
+
             <com.joanzapata.iconify.widget.IconTextView
                 android:text=""
                 android:padding="3dp"
@@ -83,9 +74,9 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
             <include layout="@layout/seperator"/>
+
 
 
             <com.joanzapata.iconify.widget.IconTextView
@@ -98,8 +89,8 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
+
             <include layout="@layout/seperator"/>
 
             <com.joanzapata.iconify.widget.IconTextView
@@ -117,8 +108,8 @@
                 android:foreground="?android:selectableItemBackground"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
+
             <include layout="@layout/seperator"/>
 
             <com.joanzapata.iconify.widget.IconTextView
@@ -136,8 +127,7 @@
                 android:foreground="?android:selectableItemBackground"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

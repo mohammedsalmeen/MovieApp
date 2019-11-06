@@ -23,7 +23,6 @@ import java.util.Arrays;
 
 public class FavouriteMoviesActivity extends AppCompatActivity {
 
-
     ArrayList<Movies> list = new ArrayList<>();
     MoviesAdapter adapter;
     RecyclerView recyclerView;
@@ -63,12 +62,12 @@ public class FavouriteMoviesActivity extends AppCompatActivity {
                     Log.e("Khaled", ""+i);
                     JSONObject movieJson = favList.getJSONObject(i);
 
-                    movie.MovieTitle = movieJson.getString("title");
-                    Log.e("Khaled", movie.MovieTitle);
-                    movie.ImdbRating = movieJson.getDouble("ImdbRating");
-                    movie.Year= movieJson.getString("Year");
-                    movie.Released_date = movieJson.getString("Released_date");
-                    movie.MoviePoster= movieJson.getString("MoviePoster");
+                    movie.movieTitle = movieJson.getString("title");
+                    Log.e("Khaled", movie.movieTitle);
+                    movie.imdbRating = movieJson.getDouble("ImdbRating");
+                    movie.year= movieJson.getString("Year");
+                    movie.released_date = movieJson.getString("Released_date");
+                    movie.moviePoster= movieJson.getString("MoviePoster");
                     result.add(movie);
                     favIsEmpty.setVisibility(View.GONE);
                 }

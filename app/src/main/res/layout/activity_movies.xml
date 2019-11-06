@@ -12,18 +12,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appBAr"
-
-        >
-
+        android:id="@+id/appBAr">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Search"
             android:gravity="center"
-            app:titleTextColor="#fff"
-            >
+            app:titleTextColor="#fff">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -70,11 +66,6 @@
 
 
         </FrameLayout>
-
-
-
-
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@+id/searchId"
