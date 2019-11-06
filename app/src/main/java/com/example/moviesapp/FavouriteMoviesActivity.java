@@ -23,10 +23,12 @@ import java.util.Arrays;
 
 public class FavouriteMoviesActivity extends AppCompatActivity {
 
+    // variable definition
     ArrayList<Movies> list = new ArrayList<>();
     MoviesAdapter adapter;
     RecyclerView recyclerView;
     ImageView favIsEmpty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +38,11 @@ public class FavouriteMoviesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         list = getData();
 
-        if (list.size() == 0){
-            Toast.makeText(this,getString(R.string.no_favs), Toast.LENGTH_SHORT).show();
+        // if the favourite is empty
+        if (list.size() == 0) {
+            Toast.makeText(this, getString(R.string.no_favs), Toast.LENGTH_SHORT).show();
         }
-
+        // to handel the adapter  and recyclerView
         adapter = new MoviesAdapter(list, this, recyclerView);
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
@@ -47,27 +50,28 @@ public class FavouriteMoviesActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<Movies> getData(){
+    // to get the favourite data from movies page
+    private ArrayList<Movies> getData() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String jsonFavs = prefs.getString("favourites", null);
-        Log.e("Khaled", "JSON is "+jsonFavs);
+        Log.e("Khaled", "JSON is " + jsonFavs);
         Movies movie = new Movies();
         ArrayList<Movies> result = new ArrayList<>();
 
-        if (jsonFavs!=null){
+        if (jsonFavs != null) {
             try {
                 JSONArray favList = new JSONArray(jsonFavs);
                 for (int i = 0; i < favList.length(); i++) {
-                    Log.e("Khaled", ""+i);
+                    Log.e("Khaled", "" + i);
                     JSONObject movieJson = favList.getJSONObject(i);
 
                     movie.movieTitle = movieJson.getString("title");
                     Log.e("Khaled", movie.movieTitle);
                     movie.imdbRating = movieJson.getDouble("ImdbRating");
-                    movie.year= movieJson.getString("Year");
+                    movie.year = movieJson.getString("Year");
                     movie.released_date = movieJson.getString("Released_date");
-                    movie.moviePoster= movieJson.getString("MoviePoster");
+                    movie.moviePoster = movieJson.getString("MoviePoster");
                     result.add(movie);
                     favIsEmpty.setVisibility(View.GONE);
                 }

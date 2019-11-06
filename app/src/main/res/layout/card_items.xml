@@ -60,7 +60,7 @@
                 android:id="@+id/ReleasedDate"
                 android:layout_margin="10dp"
                 android:textColor="#000"
-                android:layout_weight="1.5"
+                android:layout_weight="1.6"
                 android:layout_height="wrap_content" />
 
             <include layout="@layout/seperator"/>
@@ -75,9 +75,8 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />
+
             <include layout="@layout/seperator"/>
-
-
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:textSize="16sp"

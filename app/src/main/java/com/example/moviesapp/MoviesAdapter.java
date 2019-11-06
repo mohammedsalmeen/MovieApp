@@ -24,13 +24,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder> {
 
     ArrayList<Movies> list;
     Context context;
     RecyclerView recyclerView;
 
+    // data is passed into the constructor
     public MoviesAdapter(ArrayList<Movies> l, Context context, RecyclerView recyclerView) {
 
         this.list = l;
@@ -38,12 +38,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         this.recyclerView = recyclerView;
     }
 
+    // inflates the row layout from xml when needed
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View card = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_items, parent, false);
-        return new ViewHolder(card); //new ViewHolder(card);
+        return new ViewHolder(card);
     }
+    // binds the data to the TextView and pic
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
@@ -60,10 +62,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         holder.shareMovie.setTag(position);
 
     }
-
+    // total number of rows (size of the list).
     @Override
     public int getItemCount() {return list.size();}
-
+    // stores and recycles views as they are scrolled off screen
     class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView photo;
@@ -81,6 +83,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             photo = itemView.findViewById(R.id.photo);
             addToFavourite = itemView.findViewById(R.id.addToFavourite);
 
+            // to share the movie and method for getting data at click position
             shareMovie.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -94,10 +97,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
                 }
             });
-
+            // to add movies to the favourite page
             addToFavourite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //getting data at click position
                     int index = (int) view.getTag();
                     Movies movie = list.get(index);
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -106,12 +110,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
                     String jsonFavs = prefs.getString("favourites", null);
                     try{
                         JSONArray arr;
+                        //check if the jsonFavs is empty or not
                         if (jsonFavs!=null){
                             arr = new JSONArray(jsonFavs);
                         }else{
                             arr = new JSONArray();
                         }
-
+                        // to check the movie is exists or not
                         if (!movieExists(movie.movieTitle, arr)){
                             JSONObject obj = new JSONObject();
                             obj.put("title", movie.movieTitle);
@@ -129,13 +134,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
-                }
-            });
-
+                    }
+            }
+         });
         }
     }
-
+    // to check is movie exists or not
     private boolean movieExists(String title, JSONArray arr) throws JSONException {
         for (int i = 0; i < arr.length(); i++) {
             JSONObject obj = arr.getJSONObject(i);

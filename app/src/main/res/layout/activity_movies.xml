@@ -67,15 +67,29 @@
 
         </FrameLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/searchId"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+            <ProgressBar
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:id="@+id/progressBar"
+                android:layout_height="35dp"
+                android:indeterminateTint="@color/colorAccent"
+                />
 
+        </RelativeLayout>
     </LinearLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

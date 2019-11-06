@@ -9,36 +9,34 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView movieCardView , favMovieCardView;
+    // variable definition
+    CardView movieCardView, favMovieCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         movieCardView = findViewById(R.id.movieCard);
-        favMovieCardView= findViewById(R.id.favMovieCard);
+        favMovieCardView = findViewById(R.id.favMovieCard);
 
+        // to Movies page
+        movieCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    movieCardView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MoviesActivity.class);
+                startActivity(intent);
 
-            Intent intent = new Intent(MainActivity.this,MoviesActivity.class);
-            startActivity(intent);
-
-
-        }
-    });
-
+            }
+        });
+        // to favourite movies page
         favMovieCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this,FavouriteMoviesActivity.class);
+                Intent intent = new Intent(MainActivity.this, FavouriteMoviesActivity.class);
                 startActivity(intent);
-
 
             }
         });

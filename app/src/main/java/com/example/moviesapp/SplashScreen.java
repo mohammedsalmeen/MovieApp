@@ -2,10 +2,10 @@ package com.example.moviesapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.os.Handler;
-        import android.widget.ImageView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -16,8 +16,10 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
         splash_photo = findViewById(R.id.splash_photo);
 
+        // To handel splash screen
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
